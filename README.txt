@@ -7,6 +7,12 @@ pyramid_cas allows your application to authenticate against a Jasig CAS server.
 
 It takes borrowed concepts from different packages like django.cas, anz.client, and collective.cas. 
 
+Install
+-------
+1. Download the package.
+
+2. python setup.py develop
+
 
 Instructions
 -------------
