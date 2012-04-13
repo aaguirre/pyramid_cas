@@ -3,7 +3,7 @@
 Introduction
 ------------
 
-pyramid_cas allows your application to authenticate againts a Jasig CAS server. 
+pyramid_cas allows your application to authenticate against a Jasig CAS server.
 
 It takes borrowed concepts from different packages like django.cas, anz.client, and collective.cas. 
 
