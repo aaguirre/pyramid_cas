@@ -1,0 +1,9 @@
+CVS
+.cvsignore
+.idea
+.project
+.pydevproject
+*.egg
+*.egg-info
+*.pyc
+*$py.class
