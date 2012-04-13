@@ -12,14 +12,23 @@ Instructions
 -------------
 Include pyramid_cas under pyramid.includes directive in your .ini file like this.
 
+Required:
+
 pyramid.includes=
     pyramid_cas
 
-Set the cas server directive
+Set the cas server that will be used for authentication
 
-pyramid_cas.cas_server = ''
+pyramid_cas.cas_server = your-cas-server
 
 Optional:
+
+pyramid_cas.callback.get_user directive allows you to use a callback function to store a different User object after CAS authentication.
+
+By default pyramid_cas will store (using the pyramid remember method) only the user id returned by CAS.
+
+Example:
+pyramid_cas.callback.get_user = adminsite.security.getUserObject
 
 Use the following actions for login and logout in the application that is including pyramid_cas
 
@@ -33,4 +42,3 @@ TODO:
 - Add demos
 - Prevent adding pyramid_cas without settings
 - Add came_from parameter
-- Solve callback error
