@@ -16,7 +16,7 @@ requires = [
     ]
 
 setup(name='pyramid_cas',
-      version='0.1 alpha',
+      version='0.2 alpha',
       description='pyramid_cas',
       long_description=README + '\n\n' +  CHANGES,
       classifiers=[
