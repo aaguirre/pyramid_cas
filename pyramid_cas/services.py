@@ -16,7 +16,7 @@ class CASProvider(object):
         """
         Returns current application's url
         """
-        if 'HTTP_X_FORWARDED_HOST' in request:
+        if 'HTTP_X_FORWARDED_HOST' in request.headers:
             # TODO get the http from the request
             applicationUrl = 'http://' +  request['HTTP_X_FORWARDED_HOST']
         else:
