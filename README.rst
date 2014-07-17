@@ -22,8 +22,8 @@ Instructions
         Include pyramid_cas under pyramid.includes directive in your .ini file like this::
 
             pyramid.includes =
-            [... other packages ...]
-            pyramid_cas
+                [... other packages ...]
+                pyramid_cas
 
         Set the cas server that will be used for authentication::
 

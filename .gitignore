@@ -7,3 +7,4 @@ CVS
 *.egg-info
 *.pyc
 *$py.class
+dist/

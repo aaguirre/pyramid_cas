@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 cas = CASProvider()
 
 
-@view_config(name='cas-login', renderer='string')
+@view_config(route_name='cas-login', renderer='string')
 @view_config(context='pyramid.httpexceptions.HTTPForbidden')
 def caslogin(request):
     """
@@ -46,7 +46,7 @@ def caslogin(request):
         return HTTPFound(location='/not-allowed')
 
 
-@view_config(name='cas-logout', renderer='string')
+@view_config(route_name='cas-logout', renderer='string')
 def caslogout(request):
     """
     Cas logout page
