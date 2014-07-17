@@ -1,3 +1,10 @@
+0.2 [6/17/14]
+---------
+
+- Brought into compliance with PEP8
+- Clarified documentation
+- Fixed bug related to iteration over headers (thanks, Szymon: https://github.com/zefciu/pyramid_cas/commit/3b67e69ea2418e64fcf8312e00fa17e10198788f)
+
 0.1 alpha
 ---------
 

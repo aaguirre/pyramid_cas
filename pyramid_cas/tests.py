@@ -16,7 +16,6 @@ class ViewTests(unittest.TestCase):
         ticket = request.GET.get('ticket')
         self.assertEqual(ticket, None)
 
-
     def test_cas_logout(self):
         from pyramid_cas.views import casLogout
         request = testing.DummyRequest()
