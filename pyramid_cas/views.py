@@ -41,7 +41,7 @@ def caslogin(request):
         else:
             user = username
         headers = remember(request, user, max_age='86400')
-        return HTTPFound(location=request.route_url('home'), headers=headers)
+        return HTTPFound(location=request.route_url(settings['pyramid_cas.redirect_route']), headers=headers)
     else:
         return HTTPFound(location='/not-allowed')
 

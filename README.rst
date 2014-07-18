@@ -29,14 +29,17 @@ Instructions
 
             pyramid_cas.cas_server = your-cas-server
 
-    Optional:
+    Optional::
 
-        `pyramid_cas.callback.get_user` directive allows you to use a callback function to store a different User object after CAS authentication.
-        By default pyramid_cas will store (using the pyramid remember method) only the user id returned by CAS.
+        pyramid_cas.callback.get_user - allows you to use a callback function to store a different User object after CAS authentication.
+                                        By default pyramid_cas will store (using the pyramid remember method) only the user id returned by CAS.
+        
+        pyramid_cas.redirect_route    - allows you to specify what route name to redirect to after succesful authentication
 
     Example::
 
         pyramid_cas.callback.get_user = adminsite.security.getUserObject
+        pyramid_cas.redirect_route = profile  # redirects to profile page on successful authentication
 
     Use the following actions for login and logout in the application that is including pyramid_cas::
 

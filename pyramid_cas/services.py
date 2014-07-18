@@ -21,7 +21,7 @@ class CASProvider(object):
             # TODO get the http from the request
             applicationurl = 'http://' + request['HTTP_X_FORWARDED_HOST']
         else:
-            applicationurl = request.host_url
+            applicationurl = request.host_url + request.path
         return applicationurl
 
     def getloginurl(self, request, service):
