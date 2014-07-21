@@ -59,3 +59,14 @@ def caslogout(request):
 @view_config(name="not-allowed", renderer='string')
 def notallowed(request):
     return 'Not Allowed'
+
+
+def getauthenticateduser(request):
+    """
+    Return the authenticated user, or None if there is no authenticated user
+    """
+    service = cas.getserviceurl(request)
+    ticket = request.GET.get('ticket')
+    if ticket is None:
+        return None
+    return cas.verifycas20(request, ticket, service)
