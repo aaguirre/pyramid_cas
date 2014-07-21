@@ -14,7 +14,7 @@ requires = ['pyramid',
             'zope.sqlalchemy']
 
 setup(name='pyramid_cas',
-      version='0.2',
+      version='0.3',
       description='A CAS client for use with the Pyramid web framework',
       long_description=README + '\n\n' + CHANGES,
       classifiers=['Programming Language :: Python',

@@ -1,5 +1,5 @@
 =======================
-pyramid_cas v0.2
+pyramid_cas v0.3
 =======================
 
 Introduction
