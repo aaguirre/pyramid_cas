@@ -3,7 +3,7 @@ import sys
 import logging
 
 # pyramid
-from pyramid.httpexceptions import HTTPFound
+from pyramid.httpexceptions import HTTPFound, HTTPForbidden
 from pyramid.security import remember, forget, unauthenticated_userid
 from pyramid.view import view_config
 
@@ -15,8 +15,7 @@ logger = logging.getLogger(__name__)
 cas = CASProvider()
 
 
-@view_config(route_name='cas-login', renderer='string')
-@view_config(context='pyramid.httpexceptions.HTTPForbidden')
+@view_config(name='cas-login', renderer='string')
 def caslogin(request):
     """
     Cas login and user challenger view
@@ -43,10 +42,10 @@ def caslogin(request):
         headers = remember(request, user, max_age='86400')
         return HTTPFound(location=request.route_url(settings['pyramid_cas.redirect_route']), headers=headers)
     else:
-        return HTTPFound(location='/not-allowed')
+        raise HTTPForbidden
 
 
-@view_config(route_name='cas-logout', renderer='string')
+@view_config(name='cas-logout', renderer='string')
 def caslogout(request):
     """
     Cas logout page
@@ -54,19 +53,3 @@ def caslogout(request):
     headers = forget(request)
     request.session.clear()
     return HTTPFound(location=cas.getlogouturl(request), headers=headers)
-
-
-@view_config(name="not-allowed", renderer='string')
-def notallowed(request):
-    return 'Not Allowed'
-
-
-def getauthenticateduser(request):
-    """
-    Return the authenticated user, or None if there is no authenticated user
-    """
-    service = cas.getserviceurl(request)
-    ticket = request.GET.get('ticket')
-    if ticket is None:
-        return None
-    return cas.verifycas20(request, ticket, service)
