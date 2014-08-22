@@ -16,7 +16,7 @@ cas = CASProvider()
 
 
 @view_config(name='cas-login', renderer='string')
-def caslogin(request):
+def caslogin(request, return_url=None):
     """
     Cas login and user challenger view
     """
@@ -40,7 +40,10 @@ def caslogin(request):
         else:
             user = username
         headers = remember(request, user, max_age='86400')
-        return HTTPFound(location=request.route_url(settings['pyramid_cas.redirect_route']), headers=headers)
+
+        # fall back to setting from config file if return_url isn't provided
+        redirect_to = return_url or request.route_url(settings['pyramid_cas.redirect_route'])
+        return HTTPFound(location=redirect_to, headers=headers)
     else:
         raise HTTPForbidden
 
