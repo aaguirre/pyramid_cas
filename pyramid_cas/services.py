@@ -1,6 +1,6 @@
 import logging
-from urllib import urlencode, urlopen
-from urlparse import urljoin
+from urllib.parse import urlencode, urljoin
+from urllib.request import urlopen
 from xml.etree import ElementTree
 
 from pyramid.httpexceptions import HTTPFound
